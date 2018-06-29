@@ -4,20 +4,22 @@ var requestHandlers = require('./requestHandlers');
 
 var handle = {}
 
+//welcomePage
+handle['/'] = requestHandlers.welcomePage;
+
 //loginPage
-handle['/'] = requestHandlers.loginPage;
 handle['/pages/loginPage.html'] = requestHandlers.loginPage;
-handle['/pagesStyle/loginPageStyle.css'] = requestHandlers.loginPageStyle;
-handle['/pagesCode/loginPageCode.js'] = requestHandlers.loginPageCode;
+handle['/pagesStyle/specificPagesStyles/loginPageStyle.css'] = requestHandlers.loginPageStyle;
+handle['/pagesCode/specificPagesCodes/loginPageCode.js'] = requestHandlers.loginPageCode;
 
 //registerPage
 handle['/pages/registerPage.html'] = requestHandlers.registerPage;
-handle['/pagesStyle/registerPageStyle.css'] = requestHandlers.registerPageStyle;
-handle['/pagesCode/registerPageCode.js'] = requestHandlers.registerPageCode;
+handle['/pagesStyle/specificPagesStyles/registerPageStyle.css'] = requestHandlers.registerPageStyle;
+handle['/pagesCode/specificPagesCodes/registerPageCode.js'] = requestHandlers.registerPageCode;
 
 //homePage
 handle['/pages/homePage.html'] = requestHandlers.homePage;
-handle['/pagesStyle/homePageStyle.css'] = requestHandlers.homePageStyle;
-handle['/pagesCode/homePageCode.js'] = requestHandlers.homePageCode;
+handle['/pagesStyle/specificPagesStyles/homePageStyle.css'] = requestHandlers.homePageStyle;
+handle['/pagesCode/specificPagesCodes/homePageCode.js'] = requestHandlers.homePageCode;
 
 server.start (router.route, handle);

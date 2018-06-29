@@ -7,8 +7,9 @@
         <meta name="author" content="ThreeBacks">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" media="screen" href="../pagesStyle/loginPageStyle.css">
-        <script src="../pagesCode/loginPageCode.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="../pagesStyle/specificPagesStyles/loginPageStyle.css">
+        <script src='../pagesCode/pagesDefaultCode.js'></script>
+        <script src="../pagesCode/specificPagesCodes/loginPageCode.js"></script>
         <title>Login</title>
     </head>
 
@@ -24,7 +25,7 @@
             </main>
 
             <footer id="buttonElements">
-                <button id="makeAccountButton" onclick="goToRegisterPage()">Create a Account</button>
+                <button id="makeAccountButton" onclick="assignPage('../pages/registerPage.html')">Create a Account</button>
                 <button id="loginButton" onclick="checkUsername()">Login</button>
             </footer>
         </main>   

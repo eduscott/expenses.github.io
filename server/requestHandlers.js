@@ -1,3 +1,19 @@
+//welcomePage
+function welcomePage (response) {
+    console.log('Request handler "welcomePage" was called.');
+    fs = require('fs');
+    fs.readFile('../pages/welcomePage.html', function read (err, data){
+        if (err) {
+            throw err;
+        }
+        html = data;
+        response.writeHead(200, {'Content-Type':'text/html'});
+        response.write(html);
+        response.end();
+    });
+}
+exports.welcomePage = welcomePage;
+
 //loginPage
 
 function loginPage (response) {
@@ -18,7 +34,7 @@ exports.loginPage = loginPage;
 function loginPageStyle (response) {
     console.log('Request handler "loginPageStyle" was called.');
     fs = require('fs');
-    fs.readFile('../pagesStyle/loginPageStyle.css', function read (err, data){
+    fs.readFile('../pagesStyle/specificPagesStyles/loginPageStyle.css', function read (err, data){
         if (err) {
             throw err;
         }
@@ -33,7 +49,7 @@ exports.loginPageStyle = loginPageStyle;
 function loginPageCode (response) {
     console.log('Request handler "loginPageCode" was called.');
     fs = require('fs');
-    fs.readFile('../pagesCode/loginPageCode.js', function read (err, data){
+    fs.readFile('../pagesCode/specificPagesCodes/loginPageCode.js', function read (err, data){
         if (err) {
             throw err;
         }
@@ -65,7 +81,7 @@ exports.registerPage = registerPage;
 function registerPageStyle (response) {
     console.log('Request handler "registerPageStyle" was called.');
     fs = require('fs');
-    fs.readFile('../pagesStyle/registerPageStyle.css', function read (err, data){
+    fs.readFile('../pagesStyle/specificPagesStyles/registerPageStyle.css', function read (err, data){
         if (err) {
             throw err;
         }
@@ -80,7 +96,7 @@ exports.registerPageStyle = registerPageStyle;
 function registerPageCode (response) {
     console.log('Request handler "registerPageCode" was called.');
     fs = require('fs');
-    fs.readFile('../pagesCode/registerPageCode.js', function read (err, data){
+    fs.readFile('../pagesCode/specificPagesCodes/registerPageCode.js', function read (err, data){
         if (err) {
             throw err;
         }
@@ -112,7 +128,7 @@ exports.homePage = homePage;
 function homePageStyle (response) {
     console.log('Request handler "homePageStyle" was called.');
     fs = require('fs');
-    fs.readFile('../pagesStyle/homePageStyle.css', function read (err, data){
+    fs.readFile('../pagesStyle/specificPagesStyles/homePageStyle.css', function read (err, data){
         if (err) {
             throw err;
         }
@@ -127,7 +143,7 @@ exports.homePageStyle = homePageStyle;
 function homePageCode (response) {
     console.log('Request handler "homePageCode" was called.');
     fs = require('fs');
-    fs.readFile('../pagesCode/homePageCode.js', function read (err, data){
+    fs.readFile('../pagesCode/specificPagesCodes/homePageCode.js', function read (err, data){
         if (err) {
             throw err;
         }
