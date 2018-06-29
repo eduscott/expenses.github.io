@@ -1,0 +1,100 @@
+body {
+    background-color: whitesmoke;
+    display: grid;
+    grid-template-areas: 
+    'header'
+    'main';
+    grid-auto-columns: auto;
+    grid-auto-rows: 45px auto;
+    margin: 0px; 
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px; 
+}
+
+#headerBar {
+    grid-area: header;
+    background-color: black;
+    width: 100%;;
+}
+
+#logo {
+    position: relative;
+    width: 190px;
+    height: 25px;
+    margin: 10px 15px;
+}
+
+#mainContainer {
+    grid-area: main;
+    width: 350px;
+    height: auto;
+    margin: auto;
+    border: none;
+    background-color: white;  
+    box-shadow: 0px 0px 10px gray;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: auto;
+}
+
+#mainLabel {
+    margin: 20px 20px 30px;
+    font-size: 30px;
+    color: rgb(78, 78, 78)
+}
+
+#mainContainer section {
+    margin: 20px;
+    display: block;
+    position: relative;
+}
+
+#mainContainer section h1 {
+    font-weight: normal;
+    font-size: 13px;
+    height: auto;
+    margin: 5px 0px;
+}
+
+#mainContainer section input {
+    border: none;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+    transition: 0.5s;
+}
+
+#mainContainer section input:focus{
+    border-color: gray;
+    outline: none;
+}
+
+#footerButtons {
+    display: block;
+    margin: 0px 20px 20px;
+}
+
+#footerButtons button {
+    padding: 10px;
+    border: none;
+    background-color: lightgray;
+    width: auto;
+    height: 30%;
+    color: black;
+    outline: none;
+    transition-duration: 0.5s;
+}
+
+#footerButtons button:focus {
+    background-color: darkgray;
+    color: white;
+}
+
+#footerButtons button:hover {
+    box-shadow: 0px 0px 5px rgb(87, 87, 87);
+}
+
+#continueButton {
+    float: right;
+}
