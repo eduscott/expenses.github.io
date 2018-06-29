@@ -10,7 +10,7 @@ function start (route, handle) {
     }).listen(8080);
 
     console.log('Server running at http://localhost:8080/');
-    console.log('Press "CTRL+C" to quit');
+    console.log('Press "Ctrl + C" to quit server');
 }
 
 exports.start = start;
