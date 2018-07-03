@@ -1,4 +1,4 @@
-var connectionAPI = require ('./connection');
+var connectionAPI = require ('./pool');
 
 function insertData (pool, table, data) {
     pool.getConnection (function (error, connection) {
@@ -33,9 +33,9 @@ function insertData (pool, table, data) {
 }
 exports.insertData = insertData;
 
-function deleteData (connection, table, data) {
+function deleteData (pool, table, key) {
     pool.getConnection (function (error, connection) {
-        var sql = 'DELETE FROM ' + table + ' WHERE ' + Object.keys(data)[0] + ' = "' + Object.values(data)[0] + '"';
+        var sql = 'DELETE FROM ' + table + ' WHERE ' + Object.keys(key)[0] + ' = "' + Object.values(key)[0] + '"';
         connection.query (sql, function (error) {
             connection.release ();
             console.log('Data was deleted!');
@@ -44,6 +44,8 @@ function deleteData (connection, table, data) {
     });
 }
 exports.deleteData = deleteData;
+
+function updateData (pool, table, key, data)
 
 var pool = connectionAPI.createPool ('localhost', 'test', 'T3$tt$3T', 'test');
 insertData (pool, 'test', {'name':'Marcos', 'age':17});

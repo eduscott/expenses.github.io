@@ -1,4 +1,4 @@
-var mysql = require ('../../server/node_modules/mysql');
+var mysql = require ('../server/node_modules/mysql');
 
 function createPool (host, user, password, database) {
     var connection = mysql.createPool ({
