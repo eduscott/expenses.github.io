@@ -1,18 +1,14 @@
 var mysql = require ('../server/node_modules/mysql');
 
 function createPool (host, user, password, database) {
-    var connection = mysql.createPool ({
+    var pool = mysql.createPool ({
         connectionLimit: 5,
         host: host,
         user: user,
         password: password,
-        database: database,
+        database: database
     });
-    return connection;
+    return pool;
 }
 exports.createPool = createPool;
-
-function statusConnection (connection) {
-    
-}
 
