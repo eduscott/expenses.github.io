@@ -1,32 +1,39 @@
 var mysql = require ('../server/node_modules/mysql');
 
-function createConnection (host, user, password, database) {
-	return mysql.createConnection ({
-		host: host,
-		user: user,
-		password: password,
-		database: database
+var Connection = function (host, user, password, database) {
+	this.host = host;
+	this.user = user;
+	this.password = password;
+	this.database = database;
+}
+
+Connection.prototype.createConnection = function () {
+	this.connection = mysql.createConnection ({
+		host: this.host,
+		user: this.user,
+		password: this.password,
+		database: this.database
 	});
 }
 
-function openConnection (connection) {
-	connection.connect (function (error) {
+Connection.prototype.openConnection = function () {
+	this.createConnection ();
+	this.connection.connect (function (error) {
 		if (error) throw error;
-		console.log('Connected to database!');
+		console.log ('Connected to database: ' + this.database + ' by user: ' + this.user + '.');
 	});
 }
 
-function closeConnection (connection) {
-	connection.end(function (error) {
+Connection.prototype.closeConnection = function () {
+	this.connection.end (function (error) {
 		if (error) throw error;
-		console.log('Disconnect to database!')
+		console.log('Disconnect to database: ' + this.database + '.')
 	});
 }
 
-function getConnection () {
+Connection.prototype.status = function () {
 
 }
 
-function statusConnection (connection) {
-    
-}
+var connection = new Connection ('localhost', 'test', 'T3$tt$3T', 'test');
+console.log(connection.user);
