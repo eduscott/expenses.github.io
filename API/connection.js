@@ -1,63 +1,71 @@
 var mysql = require ('../server/node_modules/mysql');
 
+module.exports = Connection;
+
 var Connection = function (host, user, password, database) {
-	this.host = host;
-	this.user = user;
-	this.password = password;
-	this.database = database;
-	this.connection = undefined;
-}
-
-Connection.prototype.getHost = function () {
-	return this.host;
-}
-Connection.prototype.getUser = function () {
-	return this.user;
-}
-Connection.prototype.getPassword = function () {
-	return this.password;
-}
-Connection.prototype.getDatabase = function () {
-	return this.database;
-}
-Connection.prototype.getConnection = function () {
-	return this.connection;
-}
-
-Connection.prototype.createConnection = function () {
-	this.connection = mysql.createConnection ({
-		host: this.getHost(),
-		user: this.getUser(),
-		password: this.getPassword(),
-		database: this.getDatabase()
+	var host = host;
+	var user = user;
+	var password = password;
+	var database = database;
+	var connection = mysql.createConnection ({
+		host: host,
+		user: user,
+		password: password,
+		database: database
 	});
+	var status = false;
+
+	//public get methods
+	this.getDatabase = function () {
+		return database;
+	}
+	this.getConnection = function () {
+		return connection;
+	}
+	this.getStatus = function () {
+		return status;
+	}
+
+	//public set methods
+	this.setStatus = function (status) {
+		status = status;
+	}
 }
 
 Connection.prototype.openConnection = function () {
 	var that = this;
-	if (this.status() == false) {
-		this.getConnection().connect (function (error) {
-			if (error) throw error;
-			console.log ('Connected to the database: ' + that.getDatabase() + ' by user: ' + that.getUser() + '.');
-		});
-	} else {
-		console.log('Active connections with database: ' + that.getDatabase() + ' already exist.');
-	}
+	this.getConnection().connect (function (error) {
+		if (error) {
+			console.log ('Error: "' + error + '".');
+			that.setStatus(false);
+		} else {
+			console.log ('Connected to "' + that.getDatabase() + '".');
+			that.setStatus(true);
+		}
+	});
 }
 
 Connection.prototype.closeConnection = function () {
 	var that = this;
-	if (this.status() == true) {
-		this.getConnection().end (function (error) {
-			if (error) throw error;
-			console.log('Disconnected from the database: ' + that.getDatabase() + '.');
-		});
-	} else {
-		console.log ('There are no active connections to the database: ' + that.getDatabase() + '.');
+	this.getConnection().end (function (error) {
+		if (error) {
+			console.log ('Error: "' + error + '".');
+			that.setStatus(true);
+		} else {
+			console.log('Disconnected from "' + that.getDatabase() + '".');
+			that.setStatus(false);
+		}
+	});
+}
+
+Connection.prototype.showStatus = function () {
+	if (this.getStatus() == false) {
+		console.log('false');
+	} else if (this.getStatus() == true) {
+		console.log('true');
 	}
 }
 
-Connection.prototype.status = function () {
-}
-
-var connection = new Connection ('localhost', 'test', 'T3$tt$3T', 'test');
+//var connection = new Connection ('localhost', 'test', 'T3$tt$3T', 'test');
+//connection.openConnection();
+//connection.closeConnection();
