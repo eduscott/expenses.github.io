@@ -1,4 +1,6 @@
-var connectionAPI = require ('./pool');
+var mysql = require ('../server/node_modules/mysql');
+
+module.exports = Database;
 
 function insertData (pool, table, data) {
     pool.getConnection (function (error, connection) {
@@ -45,7 +47,9 @@ function deleteData (pool, table, key) {
 }
 exports.deleteData = deleteData;
 
-function updateData (pool, table, key, data)
+function updateData (pool, table, key, data) {
+    
+}
 
 var pool = connectionAPI.createPool ('localhost', 'test', 'T3$tt$3T', 'test');
 insertData (pool, 'test', {'name':'Marcos', 'age':17});
