@@ -1,16 +1,16 @@
 var mysql = require ('../server/node_modules/mysql');
 
-export default class Connection {
+class Connection {
 
 	constructor (host, user, password, database) {
-		this.__connection = mysql.createConnection({
+		this.connection = mysql.createConnection({
 			host: host,
 			user: user,
 			password: password,
 			database: database
 		});
-		this.__database = database;
-		this.__status = false;
+		this.database = database;
+		this.status = false;
 	}
 
 	//public get methods
@@ -25,6 +25,12 @@ export default class Connection {
 	}
 
 	//public set methods
+	set connection (connection) {
+		this.__connection = connection;
+	}
+	set database (database) {
+		this.__database = database;
+	}
 	set status (status) {
 		this.__status = status;
 	}
@@ -67,7 +73,3 @@ export default class Connection {
 		}
 	}
 }
-
-let connection = new Connection ('localhost', 'test', 'T3$tt$3T', 'test');
-connection.openConnection();
-connection.closeConnection();
