@@ -1,13 +1,11 @@
-export default Dictionary;
+module.exports = Dictionary;
 
-var Dictionary = function (properties, values) {
-    let __properties = properties;
-    let __values = values;
-    let __dictionary = function () {
+function Dictionary(properties, values) {
+    const __dictionary = () => {
         let dict = {};
-        if (__properties.length == __values.length) {
-            for (x = 0; x < __properties.length; x++) {
-                dict[__properties[x]] = __values[x];
+        if (properties.length == values.length) {
+            for (x = 0; x < properties.length; x++) {
+                dict[properties[x]] = values[x];
             };
             return dict;
         };
@@ -15,17 +13,12 @@ var Dictionary = function (properties, values) {
 
     //public get methods
     this.getProperties = function () {
-        return __properties;
+        return Object.keys(__dictionary);
     }
     this.getValues = function () {
-        return __values;
+        return Object.values(__dictionary);
     }
     this.getDictionary = function () {
         return __dictionary;
     }
 }
-
-var propriedades = ['nome', 'email'];
-var valores = ['Marcos Vinicius', 'marcosvbcosta10@gmail.com'];
-var dic = new Dictionary (propriedades, valores);
-console.log(dic.getDictionary());
