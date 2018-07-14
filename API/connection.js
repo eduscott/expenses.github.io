@@ -1,7 +1,5 @@
 var mysql = require ('../server/node_modules/mysql');
 
-module.exports = Connection;
-
 var Connection = function (host, user, password, database) {
 	let __host = host;
 	let __user = user;
