@@ -3,40 +3,41 @@ var mysql = require ('../server/node_modules/mysql');
 module.exports = Connection;
 
 var Connection = function (host, user, password, database) {
-	var host = host;
-	var user = user;
-	var password = password;
-	var database = database;
-	var connection = mysql.createConnection ({
+	let __host = host;
+	let __user = user;
+	let __password = password;
+	let __database = database;
+	let __connection = mysql.createConnection ({
 		host: host,
 		user: user,
 		password: password,
 		database: database
 	});
-	var status = false;
+	let __status = false;
 
 	//public get methods
 	this.getDatabase = function () {
-		return database;
+		return __database;
 	}
 	this.getConnection = function () {
-		return connection;
+		return __connection;
 	}
 	this.getStatus = function () {
-		return status;
+		return __status;
 	}
 
 	//public set methods
 	this.setStatus = function (status) {
-		status = status;
+		__status = status;
 	}
 }
 
 Connection.prototype.openConnection = function () {
-	var that = this;
+	let that = this;
 	this.getConnection().connect (function (error) {
 		if (error) {
-			console.log ('Error: "' + error + '".');
+			throw error;
+			console.log ('"' + error + '".');
 			that.setStatus(false);
 		} else {
 			console.log ('Connected to "' + that.getDatabase() + '".');
@@ -46,10 +47,11 @@ Connection.prototype.openConnection = function () {
 }
 
 Connection.prototype.closeConnection = function () {
-	var that = this;
+	let that = this;
 	this.getConnection().end (function (error) {
 		if (error) {
-			console.log ('Error: "' + error + '".');
+			throw error;
+			console.log ('"' + error + '".');
 			that.setStatus(true);
 		} else {
 			console.log('Disconnected from "' + that.getDatabase() + '".');
@@ -66,6 +68,6 @@ Connection.prototype.showStatus = function () {
 	}
 }
 
-//var connection = new Connection ('localhost', 'test', 'T3$tt$3T', 'test');
-//connection.openConnection();
-//connection.closeConnection();
+var connection = new Connection ('localhost', 'test', 'T3$tt$3T', 'test');
+connection.openConnection();
+connection.closeConnection();

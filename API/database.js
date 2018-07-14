@@ -1,14 +1,27 @@
-var mysql = require ('../server/node_modules/mysql');
+var connection = require('./Connection.js');
 
 module.exports = Database;
 
-function insertData (pool, table, data) {
-    pool.getConnection (function (error, connection) {
-        if (error) throw error;
-        var dataKeys = Object.keys (data);
-        var dataValues = Object.values (data);
-        var sql = 'INSERT INTO ' + table + ' (';
-        for (var key in dataKeys) {
+var Database = function (host, user, password, database, table) {
+    let __connection = new connection (host, user, password, database).getConnection();
+    let __table = table;
+
+    //public get methods
+    this.getConnection = function () {
+        return __connection;
+    }
+    this.getTable = function () {
+        return __table;
+    }
+}
+
+Database.prototype.insertData = function (data) {
+
+    if (!this.getConnection().openConnection()) {
+        let dataKeys = Object.keys (data);
+        let dataValues = Object.values (data);
+        let sql = 'INSERT INTO ' + this.getTable() + ' (';
+        for (let key in dataKeys) {
             sql += dataKeys[key];
             if (dataKeys[key] == dataKeys[dataKeys.length-1]){
                 sql += ')';
@@ -17,7 +30,7 @@ function insertData (pool, table, data) {
             }
         }
         sql += ' VALUES (';
-        for (var value in dataValues) {
+        for (let value in dataValues) {
             sql += '"' + dataValues[value];
             if (dataValues[value] == dataValues[dataValues.length-1]){
                 sql += '");';
@@ -25,32 +38,34 @@ function insertData (pool, table, data) {
                 sql += '",';
             }
         }
-        console.log(sql)
-        connection.query (sql, function (error) {
-            console.log('Data was inserted!');
-            connection.release ();
-            if (error) throw error;
-        });
-    });
-}
-exports.insertData = insertData;
+        console.log(sql);
 
-function deleteData (pool, table, key) {
-    pool.getConnection (function (error, connection) {
-        var sql = 'DELETE FROM ' + table + ' WHERE ' + Object.keys(key)[0] + ' = "' + Object.values(key)[0] + '"';
-        connection.query (sql, function (error) {
-            connection.release ();
-            console.log('Data was deleted!');
-            if (error) throw error;   
-        })
-    });
+        this.getConnection().query (sql, function (error) {
+            if (error) throw error;
+            console.log('Data was insered!');
+        });
+        this.getConnection().closeConnection();
+    }
+
 }
-exports.deleteData = deleteData;
+
+function deleteData (key) {
+
+    if (!this.getConnection().openConnection()) {
+        let sql = 'DELETE FROM ' + this.getTable() + ' WHERE ' + Object.keys(key)[0] + ' = "' + Object.values(key)[0] + '"';
+        this.getConnection().query (sql, function (error) {
+            if (error) throw error;
+            console.log('Data was deleted!');
+        });
+        this.getConnection().closeConnection ();
+    }
+    
+}
 
 function updateData (pool, table, key, data) {
     
 }
 
-var pool = connectionAPI.createPool ('localhost', 'test', 'T3$tt$3T', 'test');
-insertData (pool, 'test', {'name':'Marcos', 'age':17});
-deleteData (pool, 'test', {'name':'Marcos'});
+var connection = new Database ('localhost', 'test', 'T3$tt$3T', 'test', 'test');
+insertData ({'name':'Marcos', 'age':17});
+deleteData ({'name':'Marcos'});

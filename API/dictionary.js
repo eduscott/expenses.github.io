@@ -1,29 +1,27 @@
-module.exports = Dictionary;
+export default Dictionary;
 
 var Dictionary = function (properties, values) {
-    var properties = properties;
-    var values = values;
-    var dictionary = function () {
-        var dict = {};
-        if (properties.length == values.length) {
-            for (x = 0; x < properties.length; x++) {
-                dict[properties[x]] = values[x];
+    let __properties = properties;
+    let __values = values;
+    let __dictionary = function () {
+        let dict = {};
+        if (__properties.length == __values.length) {
+            for (x = 0; x < __properties.length; x++) {
+                dict[__properties[x]] = __values[x];
             };
             return dict;
-        } else {
-            console.log('Check your parameters!');
-        }
+        };
     }
 
     //public get methods
     this.getProperties = function () {
-        return properties;
+        return __properties;
     }
     this.getValues = function () {
-        return values;
+        return __values;
     }
     this.getDictionary = function () {
-        return dictionary;
+        return __dictionary;
     }
 }
 
