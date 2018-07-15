@@ -32,9 +32,9 @@ function reset () {
 }
 
 function goToHomePage () {
-    window.location.replace("../pages/homePage.html");
+    window.location.replace("../pages/home.html");
 }
 
 function goToRegisterPage () {
-    window.location.assign("../pages/registerPage.html");
+    window.location.assign("../pages/register.html");
 }
