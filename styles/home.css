@@ -14,7 +14,7 @@ body {
     right: 0px; 
 }
 
-#topBar {
+#top-bar {
     grid-area: header;
     width: 100%;
     background-color: black;
@@ -27,7 +27,7 @@ body {
     margin: 10px 15px;
 }
 
-#leftBar {
+#left-bar {
     position: fixed;
     width: 55px;
     height: 200px;
@@ -37,7 +37,7 @@ body {
     background-color: rgb(48, 48, 48);
 }
 
-#leftBar button {
+#left-bar button {
     display: block;
     position: relative;
     width: 100%;
@@ -48,7 +48,7 @@ body {
     padding: 0px;
 }
 
-#mainContainer {
+#main-container {
     grid-area: main;
     width: auto;
     height: auto;
