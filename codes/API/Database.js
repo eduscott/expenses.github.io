@@ -1,10 +1,10 @@
 const sqlCreator = require('./SqlCreator');
-const c = require('./Connection');
 
 //insert data in database
 function insertData(connection, table, data) {
-
-    if (!connection.openConnection()) {
+    
+    connection.openConnection();
+    if (connection.getStatus() == true) {
         let sql = sqlCreator.createInsertSQL(table, data);
         console.log(sql);
 
@@ -13,6 +13,9 @@ function insertData(connection, table, data) {
             console.log('Data was insered!');
         });
         connection.closeConnection();
+    } 
+    else {
+        console.log('No active connection!');
     }
 
 }
@@ -21,7 +24,8 @@ exports.insertData = insertData;
 //delete data in database
 function deleteData(connection, table, key) {
 
-    if (!connection.openConnection()) {
+    connection.openConnection();
+    if (connection.getStatus() == true) {
         let sql = sqlCreator.createDeleteSQL(table, key);
         console.log(sql);
 
@@ -30,6 +34,9 @@ function deleteData(connection, table, key) {
             console.log('Data was deleted!');
         });
         connection.closeConnection();
+    } 
+    else {
+        console.log('No active connection!');
     }
 
 }
@@ -38,7 +45,8 @@ exports.deleteData = deleteData;
 //update data in database
 function updateData(connection, table, key, data) {
 
-    if (!connection.openConnection()) {
+    connection.openConnection();
+    if ((connection.getStatus() == true)) {
         const sql = sqlCreator.createUpdateSQL(table, key, data);
         console.log(sql);
 
@@ -48,6 +56,9 @@ function updateData(connection, table, key, data) {
         });
         connection.closeConnection();
     }
+    else {
+        console.log('No active connection!');
+    }
 
 }
 exports.updateData = updateData;
@@ -55,7 +66,8 @@ exports.updateData = updateData;
 //select data of specific columns in database
 function selectData(connection, table, columns) {
 
-    if (!connection.openConnection()) {
+    connection.openConnection();
+    if (connection.getStatus() == true) {
         const sql = sqlCreator.createSelectSQL(table, columns);
         console.log(sql);
 
@@ -66,6 +78,9 @@ function selectData(connection, table, columns) {
         });
         connection.closeConnection();
     }
+    else {
+        console.log('No active connection!');
+    }
 
 }
 exports.selectData = selectData;
@@ -73,7 +88,8 @@ exports.selectData = selectData;
 //select data of all columns in database
 function selectAllData(connection, table) {
 
-    if (!connection.openConnection()) {
+    connection.openConnection();
+    if (connection.getStatus() == true) {
         const sql = sqlCreator.createSelectSQL(table);
         console.log(sql);
 
@@ -83,6 +99,9 @@ function selectAllData(connection, table) {
             return result;
         });
         connection.closeConnection();
+    }
+    else {
+        console.log('No active connection!');
     }
 
 }
