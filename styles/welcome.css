@@ -1,0 +1,81 @@
+#top-bar {
+    background-color: black;
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    justify-content: space-between;
+}
+
+#logo {
+    position: relative;   
+    color: white;
+}
+
+#header-buttons {
+    padding: 0px 20px;
+    top: 0%;
+    right: 0%;
+}
+
+#header-buttons button {
+    color: white;
+    font-size: 20px;
+}
+
+#main {
+    margin-top: 75px;
+}
+
+#login-container {
+    background-color: white;
+    width: 250px;
+}
+
+#login-label {
+    text-align: left;
+    color: rgb(78, 78, 78);
+}
+
+#login-container input {
+    position: relative;
+    margin: 5px 0px 5px 0px;
+    display: block;
+    width: 100%;
+}
+
+#login-buttons {
+    padding: 10px 0px 0px 0px;
+    width: 100%;
+}
+
+#register-container {
+    background-color: white;
+    width: auto;
+}
+
+#register-label {
+    text-align: left;
+    color: rgb(78, 78, 78);
+}
+
+#register-form div {
+    margin: 5px 0px;
+}
+
+#register-form h5 {
+    color: rgb(78, 78, 78);
+}
+
+#register-form input {
+    width: 100%;
+}
+
+#register-form div div:first-child {
+    margin-right: 5px;
+}
+
+#register-buttons {
+    padding: 10px 0px 0px 0px;
+    width: 100%;
+}

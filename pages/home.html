@@ -4,30 +4,70 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="author" content="ThreeBacks">
+    <meta name="author" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/default.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../styles/home.css" />
     <script src="../codes/default.js"></script>
     <script src="../codes/home.js"></script>
-    <title>Expen$es</title>
+    <title>Expen$es - Home Page</title>
 </head>
 
 <body>
-    <header id="top-bar">
-        <img src="" id="logo">
+
+    <header class="bar" id="top-bar">
+        <h1 id="logo">Expen$es</h1>
+        <button class="light-button" id="logout-button">Logout</button>
     </header>
 
-    <menu id="left-bar">
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-    </menu>
+    <aside class="container" id="aside-container">
 
-    <main id="main-container">
+        <img src="../resources/download.png" alt="profile photo" id="profile-photo">
+
+        <h3>Marcos V. B. Costa</h3>
+        <h5>marcosvbcosta10@gmail.com</h5>
+        <h2>$ 500,00</h2>
+
+    </aside>
+
+    <main class="container" id="main-container">
+
+        <div class="items-container" id="menu">
+            <button class="dark-button">Expenses</button>
+            <button class="dark-button">Earnings</button>
+            <button class="dark-button">Graphics</button>
+        </div>
+
+        <div class="container " id="expenses-container">
+
+            <div>
+
+            </div>
+            <h2>Month - August</h2>
+
+            <div class="items-list"> 
+                <button class="select-box dark-button" id="main-select"></button>
+                <h3>Name</h3>
+                <h3>Value</h3>
+                <h3>Date</h3> 
+                <button class="options-box dark-button" id="main-options">...</button>
+            </div>
+
+        </div>
+
+        <div class="container" id="earnings-container" hidden>
+
+        </div>
+
+        <div class="container" id="graphics-container" hidden>
+
+        </div>
 
     </main>
+
+    
+
 </body>
 
 </html>

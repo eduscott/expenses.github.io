@@ -1,0 +1,152 @@
+.body, body{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px; 
+    margin: 0px;
+    box-sizing: border-box;
+    overflow: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
+}
+
+.panel {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.container {
+	width: auto;
+    height: auto;
+    padding: 15px;
+    margin: auto;
+    border: none;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.bar {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    top: 0px;
+}
+
+main {
+    width: auto;
+    height: auto;
+    position: absolute;
+    right: 0px;
+    left: 0px; 
+    top: 0px;
+    bottom: 0px;
+}
+
+footer {
+    bottom: 0px;
+}
+
+button {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin: 0px 5px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    transition-duration: 0.5s;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
+}
+
+.light-button:focus, .light-button:hover, .light-button:target {background-color: rgba(255, 255, 255, 0.35)}
+
+.dark-button:focus, .dark-button:hover, .dark-button:target {background-color: rgba(0, 0, 0, 0.35)}
+
+input {
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+    outline: none;
+    transition-duration: 0.5s;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+}
+
+input:focus {border-bottom: 1px solid rgb(78, 78, 78)}
+
+h1 {
+    width: auto;
+    height: auto;
+    font-size: 30px;
+    padding: 20px;
+    margin: 0px;
+}
+
+h2 {
+    width: auto;
+    height: auto;
+    font-size: 25px;
+    padding: 10px;
+    margin: 0px;
+}
+
+h3 {
+    width: auto;
+    height: auto;
+    font-size: 20px;
+    padding: 10px;
+    margin: 0px;
+}
+
+h4 {
+    width: auto;
+    height: auto;
+    font-size: 20px;
+    padding: 5px;
+    margin: 0px;
+}
+
+h5 {
+    width: auto;
+    height: auto;
+    font-size: 15px;
+    padding: 5px;
+    margin: 0px;
+}
+
+h6 {
+    width: auto;
+    height: auto;
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.items-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+}
