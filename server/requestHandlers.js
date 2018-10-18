@@ -8,7 +8,7 @@ function defaultCode (response) {
             throw err;
         }
         html = data;
-        response.writeHead(200, {'Content-Type':'text/html'});
+        response.writeHead(200, {'Content-Type':'text/javascript'});
         response.write(html);
         response.end();
     });
@@ -23,7 +23,7 @@ function homeCode (response) {
             throw err;
         }
         html = data;
-        response.writeHead(200, {'Content-Type':'text/html'});
+        response.writeHead(200, {'Content-Type':'text/javascript'});
         response.write(html);
         response.end();
     });
@@ -38,7 +38,7 @@ function initialCode (response) {
             throw err;
         }
         html = data;
-        response.writeHead(200, {'Content-Type':'text/html'});
+        response.writeHead(200, {'Content-Type':'text/javascript'});
         response.write(html);
         response.end();
     });
@@ -55,7 +55,7 @@ function defaultStyle (response) {
             throw err;
         }
         html = data;
-        response.writeHead(200, {'Content-Type':'text/html'});
+        response.writeHead(200, {'Content-Type':'text/css'});
         response.write(html);
         response.end();
     });
@@ -70,7 +70,7 @@ function homeStyle (response) {
             throw err;
         }
         html = data;
-        response.writeHead(200, {'Content-Type':'text/html'});
+        response.writeHead(200, {'Content-Type':'text/css'});
         response.write(html);
         response.end();
     });
@@ -85,7 +85,7 @@ function initialStyle (response) {
             throw err;
         }
         html = data;
-        response.writeHead(200, {'Content-Type':'text/html'});
+        response.writeHead(200, {'Content-Type':'text/css'});
         response.write(html);
         response.end();
     });
