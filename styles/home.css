@@ -23,7 +23,7 @@
 #aside-container {
     width: 300px;
     position: absolute;
-    margin-top: 75px;
+    margin-top: 74px;
     bottom: 0px;
     top: 0px;
     display: flex;
@@ -44,7 +44,7 @@
 }
 
 #main-container {
-    margin-top: 75px;
+    margin-top: 74px;
     margin-left: 300px;
     background-color: lightgray;
 }

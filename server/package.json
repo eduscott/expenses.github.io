@@ -5,7 +5,7 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcosvbcosta/expense-.git"
+    "url": "https://github.com/marcosvbcosta/expenses.git"
   },
   "dependencies": {
     "http": "0.0.0",

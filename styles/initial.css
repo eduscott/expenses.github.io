@@ -1,3 +1,7 @@
+#login, #register {
+    visibility: hidden;
+}
+
 #top-bar {
     background-color: black;
     display: inline-flex;
@@ -24,7 +28,7 @@
 }
 
 #main {
-    margin-top: 75px;
+    margin-top: 74px;
 }
 
 #login-container {

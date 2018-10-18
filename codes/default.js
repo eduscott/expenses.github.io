@@ -1,8 +1,10 @@
 //pages switch
-function replacePage (url) {
+function replacePage (page) {
+    url = '../pages/' + page + '.html'
     window.location.replace(url);
 }
 
-function assignPage (url) {
-    window.location.replace(url);
+function assignPage (page) {
+    url = '../pages/' + page + '.html'
+    window.location.assign(page);
 }
